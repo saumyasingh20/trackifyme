@@ -1,0 +1,13 @@
+
+<% if(locals.user) { %>
+    <h1> 
+        Welcome, <%= locals.user.name %> ! <br>You are signed in to my Authentication App now !
+    </h1>
+
+        <%  } else { %>
+        <h1> 
+            Welcome, User !
+            <br>
+            Please Sign in/Sign up to continue !
+        </h1> 
+     <%  }  %>

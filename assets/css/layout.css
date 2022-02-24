@@ -1,0 +1,25 @@
+body {
+    margin: 0;
+    text-align: center;
+   
+}
+body #layout-main {
+    height: 100%;
+}
+a:link {
+    color: black;
+    text-decoration: none;
+}
+a:visited {
+    color: black;
+    text-decoration: none;
+}
+a:hover {
+    color: darkblue;
+    cursor: pointer;
+    text-decoration: none;
+}
+a:active {
+    color: black;
+    text-decoration: none;
+}

@@ -1,0 +1,30 @@
+#layout-footer {
+    color: white;
+    position: absolute;
+    bottom:0;
+    width:100%;
+    height:40px;
+    background: rgb(90, 65, 106);
+    padding: 5px 10px;
+    display: flex;
+    justify-content: flex-start;
+}
+#layout-footer a {
+    color: white;
+    text-decoration: none;
+}
+#layout-footer .footer-nav ul {
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-left: 1%;
+}
+#layout-footer .footer-nav li {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    margin-left: 10px;
+    margin-right: 10px;
+}
