@@ -1,7 +1,7 @@
 {
   "name": "trackifyme",
   "version": "1.0.0",
-  "description": "authentication web app",
+  "description": "habit tracker web app",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -9,7 +9,7 @@
     "prod_start": "NODE_ENV=production nodemon index.js"
   },
   "author": "Saumya Singh",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "bcrypt": "^5.0.1",
     "connect-flash": "^0.1.1",
@@ -32,5 +32,13 @@
     "passport-local": "^1.0.0",
     "rotating-file-stream": "^3.0.3"
   },
-  "devDependencies": {}
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/saumyasingh20/trackifyme.git"
+  },
+  "bugs": {
+    "url": "https://github.com/saumyasingh20/trackifyme/issues"
+  },
+  "homepage": "https://github.com/saumyasingh20/trackifyme#readme"
 }

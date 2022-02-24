@@ -66,5 +66,5 @@ const production = {
 
         }
 }
-
+module.exports = development;
 // module.exports = eval(process.env.AUTH_APP_ENVIRONMENT)== undefined ? development:eval(process.env.AUTH_APP_ENVIRONMENT);
