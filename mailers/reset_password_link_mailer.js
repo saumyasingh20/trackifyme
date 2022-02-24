@@ -4,7 +4,7 @@ exports.sendResetPasswordLink =(ResetPasswordToken,user) =>{
     nodeMailer.transporter.sendMail({
         from: 'saumyalearnsdevelopment@gmail.com',
         to: user.email,
-        subject:`Reset Password for Authentication App`,
+        subject:`Reset Password for trackifyme`,
         html: htmlString
 
     }, (err,info) => {

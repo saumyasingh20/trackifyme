@@ -14,8 +14,8 @@ const accessLogStream = rfs.createStream('access.log',{
 const development = {
     name :'development',
     asset_path:'./assets',
-    session_cookie_key :'hvgdhscjhdccdwjbdcd',
-    db:'authentication_app_development',
+    session_cookie_key :'hhdbhjhwehcghwECVhwgchvWCSVHgscd',
+    db:'trackifyme_development',
     smtp:{
         service:'gmail',
         host: 'smtp.gmail.com',
@@ -27,11 +27,11 @@ const development = {
              }
         },
     
-        google_client_id:"462792517461-a7j7un1vu9kooplvo0hd8vv9jrfrkmok.apps.googleusercontent.com",
+        google_client_id:"462792517461-t2urnr192kot1qkfu47r4ri67no8tuu0.apps.googleusercontent.com",
 
-        google_client_secret:"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",
+        google_client_secret:"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",
 
-        google_call_back_url:"https://authsys.live/users/auth/google/callback",
+        google_call_back_url:"http://localhost:8005/users/auth/google/callback",
         morgan:{
             mode:'dev',
             options:{stream: accessLogStream}
@@ -67,4 +67,4 @@ const production = {
         }
 }
 
-module.exports = eval(process.env.AUTH_APP_ENVIRONMENT)== undefined ? development:eval(process.env.AUTH_APP_ENVIRONMENT);
+// module.exports = eval(process.env.AUTH_APP_ENVIRONMENT)== undefined ? development:eval(process.env.AUTH_APP_ENVIRONMENT);

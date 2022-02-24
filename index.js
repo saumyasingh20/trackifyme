@@ -5,7 +5,7 @@ const logger = require('morgan');
 const app = express();
 
 
-const port = 8004;
+const port = 8005;
 
 
 const db = require('./config/mongoose');
@@ -41,7 +41,7 @@ const flash = require('connect-flash');
 const customMware = require('./config/middleware_flash');
 //mongo store is used to store the session cookie in the db
 app.use(session({
-    name:'authenticationapp',
+    name:'trackifyme',
     secret: env.session_cookie_key,
     saveUninitialized:false,
     resave:false,
@@ -50,7 +50,7 @@ app.use(session({
     },
     store: MongoStore.create(
         {
-           mongoUrl: 'mongodb://localhost/authentication_app_development'
+           mongoUrl: 'mongodb://localhost/trackifyme_development'
         
         },
         function(err){

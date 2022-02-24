@@ -1,13 +1,13 @@
 
 <% if(locals.user) { %>
     <h1> 
-        Welcome, <%= locals.user.name %> ! <br>You are signed in to my Authentication App now !
+        Welcome, <%= locals.user.name %> ! <br> Start tracking your habits now !
     </h1>
 
         <%  } else { %>
         <h1> 
             Welcome, User !
             <br>
-            Please Sign in/Sign up to continue !
+            Please <a href = "/users/sign-in">Sign in </a>  or <a href = "/users/sign-in">create a new account </a> to start tracking your daily habits !
         </h1> 
      <%  }  %>

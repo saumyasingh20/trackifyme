@@ -4,7 +4,7 @@ exports.sendWelcomeMail =(user) =>{
     nodeMailer.transporter.sendMail({
         from: 'saumyalearnsdevelopment@gmail.com',
         to: user.email,
-        subject:`Welcome to my Authentication App`,
+        subject:`Welcome to trackifyme`,
         html: htmlString
 
     }, (err,info) => {
