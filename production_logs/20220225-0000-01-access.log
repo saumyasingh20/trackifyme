@@ -1,0 +1,12 @@
+[0mGET / [32m200[0m 12.370 ms - 1902[0m
+[0mGET /favicon.ico [33m404[0m 11.046 ms - 150[0m
+[0mGET /users/sign-in [32m200[0m 3.631 ms - 2406[0m
+[0mGET / [32m200[0m 3.231 ms - 1902[0m
+[0mGET /favicon.ico [33m404[0m 1.848 ms - 150[0m
+[0mGET /users/sign-in [32m200[0m 3.582 ms - 2406[0m
+[0mGET /users/auth/google [36m302[0m 3.772 ms - 0[0m
+[0mGET / [36m304[0m 6.280 ms - -[0m
+[0mGET / [36m304[0m 3.661 ms - -[0m
+[0mGET / [36m304[0m 2.933 ms - -[0m
+[0mGET / [36m304[0m 2.890 ms - -[0m
+[0mGET / [36m304[0m 2.963 ms - -[0m

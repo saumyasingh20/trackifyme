@@ -2,7 +2,8 @@
     display: flex;
     justify-content: space-between;
     padding: 0 10px;
-    background: #590aba;
+   
+    background: rgb(7, 85, 103);
     color: white;
     box-shadow: 1px 1px 1px 1px lightgrey;
 }
@@ -19,7 +20,7 @@
     list-style: none;
 }
 #layout-header nav .auth-links ul li {
-    font-size: 1.2rem;
+    font-size: 1rem;
     letter-spacing: 1px;
     font-weight: 500;
     margin-right: 10px;
