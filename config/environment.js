@@ -66,5 +66,5 @@ const production = {
 
         }
 }
-// module.exports = development;
-module.exports = eval(process.env.TRACKIFYME_ENVIRONMENT)== undefined ? development:eval(process.env.TRACKIFYME_ENVIRONMENT);
+module.exports = development;
+// module.exports = eval(process.env.TRACKIFYME_ENVIRONMENT)== undefined ? development:eval(process.env.TRACKIFYME_ENVIRONMENT);
