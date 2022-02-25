@@ -1,0 +1,51 @@
+<script>
+    function warningfunction(){
+        req.flash('error','You can not update weekly status');
+    }
+</script>
+<div class="my-3" style="text-align: center; font-weight: 700; color: rgb(7, 85, 103);"> 
+    <a style="color: rgb(7, 85, 103); font-size: large; text-decoration: none;" href="/habits/dashboard-weekly">
+        My Weekly Activities Chart
+    </a>
+</div>
+
+<section class="mt-3" style="height:85vh; background-color: aliceblue;"> 
+    
+    <div class="table-responsive">
+        <table class="table table-hover table-striped table-success table-bordered">
+            <thead class="table-dark">
+                <tr class="p-4">
+                    <th> My Activity</th>
+
+                    <% for(let d of days){ %>
+                        <th><%= d %></th>
+                    <% } %>
+                </tr>
+            </thead>
+
+            <tbody>
+                <% for(let habit of habits){ %>
+                    <tr>
+                        <th><%= habit.content %></th>
+                        <% for(let i = 0; i < habit.days.length; i++){ %>
+                            <td>
+                                <div class="p-2">
+                                    <!-- text color according to status -->
+                                    <% let color = "black" %>
+                                    <% if(habit.days[i] == 'Done'){ %>
+                                        <% color = "#025602;" %>
+                                    <% }else if(habit.days[i] == 'Not Done'){ %>
+                                        <% color = "red" %>
+                                    <% } %>
+
+                                    <b> <span style = "color: <%=color%>"><%= habit.days[i] %> </span> </b>
+                                </div>
+                            </td>
+                        <% } %>
+                    </tr>
+                <% } %>
+            </tbody>
+        </table>
+    </div>
+
+</section>
