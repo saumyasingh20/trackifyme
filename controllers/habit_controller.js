@@ -20,7 +20,7 @@ module.exports.createHabit = async function(req, res){
             let newHabit = req.body.habit;
             let userHabits = user.habits;
             for(let i = 0; i<userHabits.length;i++){
-                if(userHabits[i].content == newHabit){
+                if(userHabits[i].content.toLowerCase() == newHabit.toLowerCase()){
                     console.log('habit already found for user');
                     req.flash('error','This Habit already exists,please track a new one !');
                     return res.redirect('back');
@@ -153,7 +153,6 @@ module.exports.weeklyView = async function(req, res){
             // update user habits 
             updateData(habits);
     
-            req.flash('success', "Weekly Status updated !");
             return res.render('weekly', {
                 title : "trackifyme | weeklyBoard",
                 habits : habits,
