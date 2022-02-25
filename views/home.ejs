@@ -1,13 +1,43 @@
+<div class="card text-center">
 
-<% if(locals.user) { %>
-    <h1> 
-        Welcome, <%= locals.user.name %> ! <br> Start tracking your habits now !
-    </h1>
-
-        <%  } else { %>
-        <h1> 
-            Welcome, User !
-            <br>
-            Please <a href = "/users/sign-in">Sign in </a>  or <a href = "/users/sign-in">create a new account </a> to start tracking your daily habits !
+    <div class="card-body">
+        
+    <% if(locals.user) { %>
+    <h1 class="card-title">
+        Welcome to trackifyme, <%= locals.user.name %> ! 
+        <br>
+    </h1> 
+    <%  } else { %>
+        <h1 class="card-title">
+             Welcome, User ! <br>
         </h1> 
-     <%  }  %>
+        <p style = "font-size: 1.2rem;">
+             Do you want to make the best out of your day ? <br>
+             <br>
+        </p>
+        <%  }  %>
+        <div id="image" class="my-2">
+            <img src="/images/image.png" alt="image">
+        </div>
+       
+      
+        <% if(locals.user) { %>
+        <p style = "font-size: 1.2rem;">
+        To keep a track of your daily activities: add them to your daily habits list, update their status daily, maintain your daily streak and view your weekly activities chart !
+        <br>
+        <br>
+        <b> <a href="/habits/dashboard"> Go to my Habits Dashboard</a></b>
+        </p>
+        <%  } else { %>
+        <p style = "font-size: 1.2rem;">
+            <a href = "/"><b>trackifyme </b></a> can be your new buddy and help you in increasing your current daily productivity by 90% <br>
+            <a href = "/users/sign-in"><b> Start tracking your habits now ! </b> </a>
+        <br>
+        </p>
+        <p style = "font-size: 1.2rem;">
+        Please <a href = "/users/sign-in"><b> Sign in </b> </a>  or <a href = "/users/sign-in"><b> create a new account </a> </b>to make the best out of your day today.
+        <%  }  %>
+        </p>
+        
+    </div>
+</div>

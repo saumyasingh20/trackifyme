@@ -61,42 +61,14 @@ module.exports.create =function(req,res){
  }
 
  module.exports.createSession = function(req,res){
-    req.flash('success','Logged in successfully !');
+    req.flash('success','Welcome to trackifyme !');
     return res.redirect('/');
 }
 
 module.exports.destroySession = function(req,res){
     req.logout();
-    req.flash('success','You have been logged out');
+    req.flash('success','See you soon, again! ');
     return res.redirect('/');
 }
-module.exports.renderUpdatePasswordForm = function(req,res){
-    return res.render('update_password_form',{
-        title:"Update Password"
-    });
-}
-module.exports.updateUserPassword = function(req,res){
-    let signedInUser = req.user;
 
-    if(req.body.new_password != req.body.confirm_password){
-        req.flash('error','New Password and Confirm password fields do not match');
-        console.log("password and confirm password dont match");
-        return res.redirect('back');    
-    }
-    bcrypt.compare(req.body.old_password, signedInUser.password, function (err, result) {
-        if (result == true) {
-            signedInUser.password=req.body.new_password;
-            signedInUser.save();
-            req.flash('success','Password updated successfully !');
-            updatePasswordMailer.sendPasswordUpdateMail(signedInUser);
-            return res.redirect('/');
-                
-            } else {
-                req.flash('error','Previous Password is incorrect');
-                return res.redirect('back');
-                }
-        });
-
-   
-}
 

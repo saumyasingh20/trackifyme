@@ -23,7 +23,7 @@ const development = {
         secure: false,
         auth:{
             user:'saumyalearnsdevelopment@gmail.com',
-            pass:'saumdev@9876'
+            pass:'648270@zyS#$'
              }
         },
     

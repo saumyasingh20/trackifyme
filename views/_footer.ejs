@@ -1,7 +1,7 @@
 <footer id="layout-footer">
     <div>
         <p>
-            &#169; Saumya Singh &nbsp; 
+            &#169; trackifyme | Saumya Singh &nbsp; 
         </p>
     </div>
 
@@ -11,6 +11,14 @@
                 <li>
                     <a href="/">Home</a>
                 </li>
+                <% if (locals.user){ %>
+                <li>
+                    <a href="/habits/dashboard">Daily Dashboard</a>
+                </li>
+                <li>
+                    <a href="/habits/dashboard-weekly">Weekly Dashboard</a>
+                </li>
+                <% } %>
                 
             </ul>
         </nav>
