@@ -139,13 +139,10 @@ module.exports.weeklyView = async function(req, res){
     
             for(let i = 0; i < 7; i++){
                 let d = date.getDate() + ' ' + Months[date.getMonth()] + ',' + date.getFullYear();
-                date.setDate(date.getDate() - 1);   
+                date.setDate(date.getDate() + 1);   
                 days.push(d);
             }
-    
-           
-            days.reverse();
-    
+            
             // finding a user and all habits regarding that user
             let user = await User.findById(req.user.id).populate('habits');
             let habits = user.habits;
