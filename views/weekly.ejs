@@ -5,7 +5,7 @@
 </script>
 <div class="my-3" style="text-align: center; font-weight: 700; color: rgb(7, 85, 103);"> 
     <a style="color: rgb(7, 85, 103); font-size: large; text-decoration: none;" href="/habits/dashboard-weekly">
-        My Weekly Activities Chart
+        Activities For The Week
     </a>
 </div>
 
@@ -29,16 +29,34 @@
                         <th><%= habit.content %></th>
                         <% for(let i = 0; i < habit.days.length; i++){ %>
                             <td>
-                                <div class="p-2">
-                                    <!-- text color according to status -->
-                                    <% let color = "black" %>
+                                <div class="btn-group dropend p-2">
+                                    <!-- button color according to status -->
+                                    <% let color = "secondary" %>
                                     <% if(habit.days[i] == 'Done'){ %>
-                                        <% color = "#025602;" %>
+                                        <% color = "success" %>
                                     <% }else if(habit.days[i] == 'Not Done'){ %>
-                                        <% color = "red" %>
+                                        <% color = "danger" %>
                                     <% } %>
 
-                                    <b> <span style = "color: <%=color%>"><%= habit.days[i] %> </span> </b>
+                                    <button class="btn btn-<%= color %> dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true"><%= habit.days[i] %></button>
+
+                                    <ul style="z-index: 99!important" class="dropdown-menu index" aria-labelledby="dropdownMenuButton" style="z-index: 2;">
+                                        <li>
+                                            <a class="dropdown-item" href="/habits/update/<%= habit.id %>/<%= i %>/Done">Done</a>
+                                        </li>
+                                        <li>
+                                            <hr class="dropdown-divider">
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item" href="/habits/update/<%= habit.id %>/<%= i %>/Not%20Done">Not Done</a>
+                                        </li>
+                                        <li>
+                                            <hr class="dropdown-divider">
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item" href="/habits/update/<%= habit.id %>/<%= i %>/None">None</a>
+                                        </li>
+                                    </ul>
                                 </div>
                             </td>
                         <% } %>

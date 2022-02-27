@@ -85,6 +85,7 @@ module.exports.dashboard = async function(req, res){
             let user = await User.findById(req.user.id).populate('habits');
     
             let habits = user.habits;
+           
             
             return res.render('dashboard', {
                 title : "trackifyme | Dashboard",
@@ -102,9 +103,11 @@ module.exports.dashboard = async function(req, res){
 }
 
 // updating status
-module.exports.update = function(req, res){
+module.exports.update = async function(req, res){
+    try{
     let id = req.params.id;
     let day = req.params.day;
+    
     let status = req.params.status;
 
     Habit.findById(id, function(err, habit){
@@ -116,15 +119,19 @@ module.exports.update = function(req, res){
         habit.save();
         updateStreakAndCompleted(habit);
         if(status == 'Done'){
-            req.flash('success', `Great work ! We've marked ${habit.content} as done for today !`);
+            req.flash('success', `Great work ! We've marked ${habit.content} as done for the day !`);
         }else if(status == 'Not Done'){
-            req.flash('success', `That's sad :/ Try ${habit.content} tomorrow `);
+            req.flash('success', `That's sad :/ Try to complete ${habit.content} by the end of the day `);
         }else{
-            req.flash('success', `Tie up your laces and finish ${habit.content} by tomorrow `);
+            req.flash('success', `Tie up your laces and finish ${habit.content} by the end of the day `);
         }
         
         return res.redirect('/habits/dashboard-weekly');
     });
+}catch(err){
+    console.log(err);
+    return;
+}
 }
 
 
@@ -134,29 +141,36 @@ module.exports.weeklyView = async function(req, res){
 
     try{
         if(req.isAuthenticated()){
-            let date = new Date();
-            let days = [];
-    
-            for(let i = 0; i < 7; i++){
-                let d = date.getDate() + ' ' + Months[date.getMonth()] + ',' + date.getFullYear();
-                date.setDate(date.getDate() + 1);   
-                days.push(d);
+           
+                let date = new Date();
+                let days = [];
+        
+                for(let i = 0; i < 7; i++){
+                    let d = date.getDate() + ' ' + Months[date.getMonth()] + ',' + date.getFullYear();
+                    date.setDate(date.getDate() - 1);   
+                    days.push(d);
+                    console.log(d);
+                }
+
+                // finding a user and all habits regarding that user
+                let user = await User.findById(req.user.id).populate('habits');
+                let habits = user.habits;
+        
+                // update user habits 
+                updateData(habits);
+                return res.render('weekly', {
+                    title : "trackifyme | weeklyBoard",
+                    habits : habits,
+                    days,
+                });
+               
             }
-            
-            // finding a user and all habits regarding that user
-            let user = await User.findById(req.user.id).populate('habits');
-            let habits = user.habits;
-    
-            // update user habits 
-            updateData(habits);
-    
-            return res.render('weekly', {
-                title : "trackifyme | weeklyBoard",
-                habits : habits,
-                days,
-            });
-        }
-    }catch(err){
+        
+           
+           
+         
+           
+        }catch(err){
         console.log(err);
         return;
     }
