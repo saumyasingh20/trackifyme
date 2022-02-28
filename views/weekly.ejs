@@ -15,10 +15,10 @@
         <table class="table table-hover table-striped table-success table-bordered">
             <thead class="table-dark">
                 <tr class="p-4">
-                    <th> My Activity</th>
+                    <th style="white-space: nowrap;"> My Activity</th>
 
                     <% for(let d of days){ %>
-                        <th><%= d %></th>
+                        <th style="white-space: nowrap;"><%= d %></th>
                     <% } %>
                 </tr>
             </thead>
@@ -26,7 +26,7 @@
             <tbody>
                 <% for(let habit of habits){ %>
                     <tr>
-                        <th><%= habit.content %></th>
+                        <th style="white-space: nowrap;"><%= habit.content %></th>
                         <% for(let i = 0; i < habit.days.length; i++){ %>
                             <td>
                                 <div class="btn-group dropend p-2">
